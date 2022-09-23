@@ -92,8 +92,8 @@ jobs:
       - name: Build & push Docker image to Docker-Hub          
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
-          image: cloudzenix/cz-springboot-welcome:latest
-          tags: today
+          image: cloudzenix/cz-springboot-welcome
+          tags: latest
           registry: docker.io
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }} 
