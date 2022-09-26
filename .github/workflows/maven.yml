@@ -69,9 +69,9 @@ jobs:
  
       - name: Build & Push Docker image to JFrog-Artifact repo
         run: |
-          docker login -urenuka.prasad@cloudzenix.com -p Prasad@123 cloudzenix.jfrog.io
-          docker build -t cloudzenix.jfrog.io/docker-repo/cz-springboot-welcome:latest .
-          docker push cloudzenix.jfrog.io/docker-repo/cz-springboot-welcome:latest
+          docker login -uckreddy459@gmail.com -p Dev$3Ops2022 cjf.jfrog.io
+        #  docker build -t cloudzenix.jfrog.io/docker-repo/cz-springboot-welcome:latest .
+        #  docker push cloudzenix.jfrog.io/docker-repo/cz-springboot-welcome:latest
 
   Build-Docker_image_and_Push_to_DockerHub: 
   
