@@ -95,9 +95,30 @@ jobs:
           coordinates: groupId=com.example artifactId=app version=1.0.0
           assets: extension=jar
           filename: cz-springboot-welcome.jar  
+           
+  Build-Docker_image_and_Push_to_Nexus: 
   
-  
-  
+    name: Build-Docker_image_and_Push_to_Nexus
+    runs-on: ubuntu-latest
+    needs: [Pushing-Artifact-to-Jfrog_Repo]
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: Springboot artifact
+      - run: ls
+      - name: push docker image to nexus
+        run: |
+             ls -la 
+              sudo mv daemon.json /etc/docker/daemon.json
+              sudo systemctl restart docker
+              sudo systemctl status docker
+              sudo docker login -u admin -p nexus ec2-3-236-161-29.compute-1.amazonaws.com:8086
+              sudo docker build -t ec2-3-236-161-29.compute-1.amazonaws.com:8086/cz-springboot-welcome:latest .
+              sudo docker images
+              sudo docker push ec2-3-236-161-29.compute-1.amazonaws.com:8086/cz-springboot-welcome:latest
+
   
   Build-Docker_image_and_Push_to_Jfrog: 
   
