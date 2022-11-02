@@ -107,7 +107,10 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: Springboot artifact
-      - run: ls
+      - run: |
+             ls
+             mkdir target && cp *.jar target
+             cd target && ls
       - name: push docker image to nexus
         run: |
              ls -la 
